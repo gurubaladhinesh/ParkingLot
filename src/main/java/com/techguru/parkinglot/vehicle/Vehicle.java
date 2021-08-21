@@ -1,13 +1,20 @@
 package com.techguru.parkinglot.vehicle;
 
-import com.techguru.parkinglot.space.ParkingSpaceSizeEnum;
+public abstract class Vehicle {
 
-public interface Vehicle {
+    private String licenseNumber;
 
-    VehicleTypeEnum getVehicleType();
+    public abstract VehicleType getVehicleType();
 
-    double getPerHourRate();
+    public Vehicle(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
+    }
 
-    ParkingSpaceSizeEnum minimumRequiredParkingSpaceSize();
+    public String getLicenseNumber() {
+        return licenseNumber;
+    }
 
+    public String generateTicketNumber() {
+        return "T" + System.currentTimeMillis();
+    }
 }
